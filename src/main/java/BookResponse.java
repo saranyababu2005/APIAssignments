@@ -1,5 +1,3 @@
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class BookResponse {
   //  @JsonProperty("book_name")
     public String name;
