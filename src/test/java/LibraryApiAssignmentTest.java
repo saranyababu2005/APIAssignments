@@ -1,5 +1,7 @@
+import io.restassured.RestAssured;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -15,10 +17,10 @@ public class LibraryApiAssignmentTest {
         Boolean flag = null;
         String id = library.addBook(addBook, status, message);
         //System.out.println(id);
-        if (id != "")
-          flag=library.verifyGetBook(id, addBook, 200);
-        else if(message.equals("Add Book operation failed, looks like the book already exists"))
+       if(id.equals("Add Book operation failed, looks like the book already exists"))
             flag=true;
+       else if (id != "")
+           flag=library.verifyGetBook(id, addBook, 200);
         Assert.assertTrue(flag,"Add Book functionality working as expected");
     }
 
@@ -92,4 +94,9 @@ public class LibraryApiAssignmentTest {
         addNewBook = new BookResponse();
     }
 
+    @BeforeTest
+    public void baseUri()
+    {
+        RestAssured.baseURI = "http://216.10.245.166";
+    }
 }

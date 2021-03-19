@@ -2,20 +2,24 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-19T06:14:12 IST" name="LibraryApiAssignmentTest" finished-at="2021-03-19T06:14:19 IST" duration-ms="7532">
+  <suite started-at="2021-03-19T06:32:26 IST" name="LibraryApiAssignmentTest" finished-at="2021-03-19T06:32:35 IST" duration-ms="8789">
     <groups>
     </groups>
-    <test started-at="2021-03-19T06:14:12 IST" name="Command line test" finished-at="2021-03-19T06:14:19 IST" duration-ms="7532">
+    <test started-at="2021-03-19T06:32:26 IST" name="Command line test" finished-at="2021-03-19T06:32:35 IST" duration-ms="8789">
       <class name="LibraryApiAssignmentTest">
-        <test-method is-config="true" signature="library()[pri:0, instance:LibraryApiAssignmentTest@1442d7b5]" started-at="2021-03-19T06:14:12 IST" name="library" finished-at="2021-03-19T06:14:12 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="baseUri()[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:26 IST" name="baseUri" finished-at="2021-03-19T06:32:27 IST" duration-ms="424" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- baseUri -->
+        <test-method is-config="true" signature="library()[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:27 IST" name="library" finished-at="2021-03-19T06:32:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- library -->
-        <test-method signature="verifyAddBook(BookResponse,int,java.lang.String)[pri:0, instance:LibraryApiAssignmentTest@1442d7b5]" started-at="2021-03-19T06:14:12 IST" name="verifyAddBook" data-provider="addBookData" finished-at="2021-03-19T06:14:14 IST" duration-ms="2402" status="PASS">
+        <test-method signature="verifyAddBook(BookResponse,int,java.lang.String)[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:27 IST" name="verifyAddBook" data-provider="addBookData" finished-at="2021-03-19T06:32:29 IST" duration-ms="1984" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[BookResponse@33188612]]>
+                <![CDATA[BookResponse@4fb56bea]]>
               </value>
             </param>
             <param index="1">
@@ -32,11 +36,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddBook -->
-        <test-method signature="verifyAddBook(BookResponse,int,java.lang.String)[pri:0, instance:LibraryApiAssignmentTest@1442d7b5]" started-at="2021-03-19T06:14:14 IST" name="verifyAddBook" data-provider="addBookData" finished-at="2021-03-19T06:14:14 IST" duration-ms="425" status="PASS">
+        <test-method signature="verifyAddBook(BookResponse,int,java.lang.String)[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:29 IST" name="verifyAddBook" data-provider="addBookData" finished-at="2021-03-19T06:32:29 IST" duration-ms="426" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[BookResponse@4733f6f5]]>
+                <![CDATA[BookResponse@5e5beb8a]]>
               </value>
             </param>
             <param index="1">
@@ -53,11 +57,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAddBook -->
-        <test-method signature="verifyBookByAuthorName()[pri:0, instance:LibraryApiAssignmentTest@1442d7b5]" started-at="2021-03-19T06:14:14 IST" name="verifyBookByAuthorName" finished-at="2021-03-19T06:14:17 IST" duration-ms="2597" status="PASS">
+        <test-method signature="verifyBookByAuthorName()[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:29 IST" name="verifyBookByAuthorName" finished-at="2021-03-19T06:32:33 IST" duration-ms="3552" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyBookByAuthorName -->
-        <test-method signature="verifyDelete()[pri:0, instance:LibraryApiAssignmentTest@1442d7b5]" started-at="2021-03-19T06:14:17 IST" name="verifyDelete" finished-at="2021-03-19T06:14:19 IST" duration-ms="2080" status="PASS">
+        <test-method signature="verifyDelete()[pri:0, instance:LibraryApiAssignmentTest@1ee807c6]" started-at="2021-03-19T06:32:33 IST" name="verifyDelete" finished-at="2021-03-19T06:32:35 IST" duration-ms="2382" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDelete -->

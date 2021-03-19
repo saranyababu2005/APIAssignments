@@ -4,6 +4,8 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,8 +15,10 @@ import static io.restassured.RestAssured.given;
 
 public class ReusableFunctions {
 
+
     public String addBook(BookResponse addBook, int status, String message) {
-        RestAssured.baseURI = "http://216.10.245.166";
+        String id = "";
+
         Response response = given().body(addBook)
                 .when().post("Library/Addbook.php")
                 .then()
@@ -27,16 +31,18 @@ public class ReusableFunctions {
             msg = jsonPathEvaluator.getString("Msg");
         } else {
             msg = jsonPathEvaluator.getString("msg");
+            if(msg.equals("Add Book operation failed, looks like the book already exists"))
+                id="Add Book operation failed, looks like the book already exists";
         }
         Assert.assertEquals(msg, message);
-        String id = "";
+
         if (status == 200)
             id = jsonPathEvaluator.getString("ID");
         return id;
     }
 
     public Boolean verifyGetBook(String id, BookResponse addBook, int status) {
-        RestAssured.baseURI = "http://216.10.245.166";
+
         Response response = given().queryParam("ID", id)
                 .when().get("Library/GetBook.php")
                 .then().statusCode(status).extract().response();
@@ -61,7 +67,7 @@ public class ReusableFunctions {
     }
 
     public void deleteBook(String id, int status, String message) {
-        RestAssured.baseURI = "http://216.10.245.166";
+
         Response response = given()
                 .body("{\"ID\" : \"" + id + "\"}")
                 .when()
@@ -88,7 +94,7 @@ public class ReusableFunctions {
 
     public GetBookResponse[] getBookByAuthorName(String author, int status, int count)
     {
-        RestAssured.baseURI="http://216.10.245.166";
+
         Response response=given().queryParam("AuthorName",author)
                 .when()
                 .get("Library/GetBook.php")
