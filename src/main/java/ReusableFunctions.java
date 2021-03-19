@@ -35,7 +35,7 @@ public class ReusableFunctions {
         return id;
     }
 
-    public void verifyGetBook(String id, BookResponse addBook, int status) {
+    public Boolean verifyGetBook(String id, BookResponse addBook, int status) {
         RestAssured.baseURI = "http://216.10.245.166";
         Response response = given().queryParam("ID", id)
                 .when().get("Library/GetBook.php")
@@ -48,12 +48,16 @@ public class ReusableFunctions {
             Assert.assertEquals(book[0].getAuthor(), addBook.getAuthor());
             Assert.assertEquals(book[0].getIsbn(), addBook.getIsbn());
             Assert.assertEquals(book[0].getName(), addBook.getName());
+            return true;
         } else if (status == 404) {
             //The book by requested bookid / author name does not exists!
             JsonPath jsonPathEvaluator = response.jsonPath();
             String msg = jsonPathEvaluator.getString("msg");
             Assert.assertEquals(msg, "The book by requested bookid / author name does not exists!");
+            return true;
         }
+        else
+            return false;
     }
 
     public void deleteBook(String id, int status, String message) {

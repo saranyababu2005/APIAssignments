@@ -5,7 +5,7 @@
     <classes>
       <class name="LibraryApiAssignmentTest">
         <methods>
-          <include name="verifyBookByAuthorName"/>
+          <include name="verifyAddBook" invocation-numbers="1"/>
           <include name="library"/>
         </methods>
       </class> <!-- LibraryApiAssignmentTest -->

@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,11 +12,14 @@ public class LibraryApiAssignmentTest {
 
     @Test(dataProvider = "addBookData")
     public void verifyAddBook(BookResponse addBook, int status, String message) {
-
+        Boolean flag = null;
         String id = library.addBook(addBook, status, message);
         //System.out.println(id);
         if (id != "")
-            library.verifyGetBook(id, addBook, 200);
+          flag=library.verifyGetBook(id, addBook, 200);
+        else if(message.equals("Add Book operation failed, looks like the book already exists"))
+            flag=true;
+        Assert.assertTrue(flag,"Add Book functionality working as expected");
     }
 
     @DataProvider
@@ -57,6 +61,10 @@ public class LibraryApiAssignmentTest {
         library.deleteBook(id, 200, "book is successfully deleted");
         library.verifyGetBook(id, addNewBook, 404);
         id = library.addBook(addNewBook, status, message);
+        if(id!="")
+            Assert.assertTrue(true,"Delete functionality works as expected");
+        else
+            Assert.assertTrue(false,"Delete functionality is not working");
     }
 
     @Test
@@ -72,6 +80,10 @@ public class LibraryApiAssignmentTest {
         GetBookResponse[] booksAfterDeletion=library.getBookByAuthorName(author,200,2);
         //System.out.println("After deleting a book");
         library.displayBooksByAuthorName(booksAfterDeletion);
+        if(booksAfterDeletion!=null)
+            Assert.assertTrue(true,"Able to retreive the books by Author name");
+        else
+            Assert.assertTrue(false,"Not able to retrieve the books by Author name");
     }
     @BeforeClass
     public void library()
